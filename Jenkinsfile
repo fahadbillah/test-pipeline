@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Start building...'
+        sh 'touch README.md'
       }
     }
     stage('Test') {
