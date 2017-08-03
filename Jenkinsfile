@@ -1,5 +1,5 @@
-node('master'){
-  pipeline {
+pipeline {
+  node('master'){
     agent any
     stages {
       stage('Build') {
