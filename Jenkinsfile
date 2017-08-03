@@ -13,7 +13,6 @@ pipeline {
   }
   stages {
     stage('Example') {
-      echo 'start building'
       steps {
         echo 'Hello World!'
         echo "Trying: ${params.door_choice}"
