@@ -1,19 +1,22 @@
-node('master') {
-  stages {
-    stage('Build') {
-      steps {
-        echo 'Start building...'
-        sh 'touch README.md'
+node('master'){
+  pipeline {
+    agent any
+    stages {
+      stage('Build') {
+        steps {
+          echo 'Start building...'
+          sh 'touch README.md'
+        }
       }
-    }
-    stage('Test') {
-      steps {
-        echo 'Start testing...'
+      stage('Test') {
+        steps {
+          echo 'Start testing...'
+        }
       }
-    }
-    stage('Publish') {
-      steps {
-        echo 'Start publishing...'
+      stage('Publish') {
+        steps {
+          echo 'Start publishing...'
+        }
       }
     }
   }
