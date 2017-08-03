@@ -5,6 +5,9 @@ pipeline {
       steps {
         echo 'Start building...'
         sh 'touch README.md'
+        writeFile file: 'README.md', text: '''# Pipeline Practice
+
+        This pipeline is a practice one.'''
       }
     }
     stage('Test') {
