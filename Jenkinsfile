@@ -8,9 +8,8 @@ pipeline {
         writeFile file: 'README.md', text: '''# Pipeline Practice
 
         This pipeline is a practice one.'''
-        env.WORKSPACE = pwd()
-        def version = readFile "${env.WORKSPACE}/README.md"
-        echo version
+        def someText = readFile 'README.md'
+        echo someText
       }
     }
     stage('Test') {
