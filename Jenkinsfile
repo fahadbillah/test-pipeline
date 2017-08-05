@@ -2,8 +2,6 @@ pipeline {
   agent any
   environment {
     FOO = "foo"
-    PROP = readJSON file: '${WORKSPACE}/properties.json'
-    project_title = PROP['project_title']
   }
   stages {
     stage('Build') {
@@ -14,6 +12,31 @@ pipeline {
 
         This pipeline is a practice one.'''
         
+      }
+      post {
+        always {
+          echo 'this step will always happen'
+        }
+
+        changed {
+          echo 'this step will happen only if jenkins pipeline changed'
+        }
+
+        failure {
+          echo 'this step will happen only if jenkins pipeline failed'
+        }
+
+        success {
+          echo 'this step will happen only if jenkins pipeline succeed'
+        }
+
+        unstable {
+          echo 'this step will happen only if jenkins pipeline unstable'
+        }
+
+        aborted {
+          echo 'this step will happen only if jenkins pipeline aborted'
+        }
       }
     }
     stage('Test') {
