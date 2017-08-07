@@ -16,7 +16,7 @@ pipeline {
       post {
         always {
           echo 'this step will always happen'
-          hipchatSend color: 'YELLOW', credentialId: 'HIPCHAT', failOnError: true, message: "${env.JOB_NAME} ${env.BUILD_NUMBER} status: ${currentBuild.result} (Open)", notify: true, room: 'Next-Level', sendAs: 'Jenkins', server: '', textFormat: true, v2enabled: false
+          hipchatSend color: 'YELLOW', credentialId: 'HIPCHAT', failOnError: true, message: '$JOB_NAME #$BUILD_NUMBER $STATUS ($HIPCHAT_CHANGES_OR_CAUSE) (<a href="$BUILD_URL">View build</a>)', notify: true, room: 'Next-Level', sendAs: 'Jenkins', server: '', textFormat: true, v2enabled: false
 
           // hipchatSend color: 'YELLOW', credentialId: 'HIPCHAT', failOnError: true, message: 'test', notify: true, room: 'Next-Level', sendAs: '', server: 'api.hipchat.com', textFormat: true, v2enabled: true
         }
