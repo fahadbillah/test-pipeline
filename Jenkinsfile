@@ -16,7 +16,6 @@ pipeline {
       post {
         always {
           echo 'this step will always happen'
-          hipchatSend color: 'YELLOW', credentialId: 'HIPCHAT', failOnError: true, message: '$JOB_NAME #$BUILD_NUMBER $STATUS ($HIPCHAT_CHANGES_OR_CAUSE) (<a href="$BUILD_URL">View build</a>)', notify: true, room: 'Next-Level', sendAs: 'Jenkins', server: '', textFormat: true, v2enabled: false
 
           // hipchatSend color: 'YELLOW', credentialId: 'HIPCHAT', failOnError: true, message: 'test', notify: true, room: 'Next-Level', sendAs: '', server: 'api.hipchat.com', textFormat: true, v2enabled: true
         }
@@ -30,7 +29,7 @@ pipeline {
         }
 
         success {
-          echo 'this step will happen only if jenkins pipeline succeed'
+          hipchatSend color: 'GREEN', credentialId: 'HIPCHAT', failOnError: true, message: '$JOB_NAME #$BUILD_NUMBER succeed ($HIPCHAT_CHANGES_OR_CAUSE) (<a href="$BUILD_URL">View build</a>)', notify: true, room: 'Next-Level', sendAs: 'Jenkins', server: '', v2enabled: false
         }
 
         unstable {
